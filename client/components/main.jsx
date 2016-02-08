@@ -14,7 +14,7 @@ const Main = ({ sheet }) => (
 	<div className={sheet.classes.container}>
 		<div className={sheet.classes.page}>
 			<div className={sheet.classes.pageTitle}>
-				Gulliver's Gate Command Center
+				Command Center
 			</div>
 			<div>
 				<Link to='/login' >Login</Link>
