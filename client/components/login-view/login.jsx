@@ -24,7 +24,7 @@ module.exports = React.createClass({
 		return(
 			<div className="login pageCenter">
 				<div className="pageTitle">
-					Gulliver's Gate Login Page
+					Login Page
 				</div>
 				<Link to="/displays">All Displays</Link>
 			</div>
