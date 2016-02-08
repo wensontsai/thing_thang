@@ -1,22 +1,45 @@
-var React = require('react');
-var Reflux = require('reflux');
+import React from 'react';
+import { Link } from 'react-router';
 
-var ReactRouter = require('react-router');
-var Router = ReactRouter.Router;
-var Route = ReactRouter.Route;
-var Link = ReactRouter.Link;
+import useSheet from 'react-jss';
 
-module.exports = React.createClass({
-	render: function(){
-		return(
-			<div className="pageCenter">
-				<div className="pageTitle">
-					Gulliver's Gate Command Center
-				</div>
-				<div>
-					<Link to="/login" >Login</Link>
-				</div>		
+
+// import children components
+// import Kitten from './Kitten';
+
+// import actions
+// import { addKitten, deleteKitten } from '../actions/kittens';
+
+const Main = ({ sheet }) => (
+	<div className={sheet.classes.container}>
+		<div className={sheet.classes.page}>
+			<div className={sheet.classes.pageTitle}>
+				Gulliver's Gate Command Center
 			</div>
-		)
+			<div>
+				<Link to='/login' >Login</Link>
+			</div>
+		</div>
+	</div>
+);
+
+const STYLES = {
+	container: {
+		padding:'0.5rem',
+		display: 'flex',
+		textAlign: 'center',
+		flexBasis: '88%',
+		width: '90%',
+		alignSelf: 'stretch',
+		flexWrap: 'wrap'
 	},
-});
+	page: {
+		background: 'black'
+	},
+	pageTitle: {
+		fontSize: '3rem',
+		color: 'gray'
+	}
+};
+
+export default useSheet(Main, STYLES);

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import command from './command';
+import kittens from './kittens';
 
 const reducers = combineReducers({
-  command
+  kittens
 });
 
 export default reducers;
