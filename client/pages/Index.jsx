@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import useSheet from 'react-jss';
-import Kittens from '../components/Kittens';
 import { connect } from 'react-redux';
+
+
 import { requestKittens } from '../actions/kittens';
+import Kittens from '../components/Kittens';
+
 
 export default class Index extends Component {
   componentDidMount() {

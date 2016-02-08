@@ -14,8 +14,8 @@ import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
 import promise from 'redux-promise';
 
-import Index from './app.jsx';
 import reducers from './reducers';
+import Routes from './routes.jsx';
 
 jss.use(jssVendorPrefixer());
 jss.use(jssPx());
@@ -31,7 +31,7 @@ const store = createStoreWithMiddleware(reducers);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Index />
+    <Routes />
   </Provider>,
   document.getElementById('root')
 );
