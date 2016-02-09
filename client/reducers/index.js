@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import kittens from './kittens';
+import displays from './displays';
 
 const reducers = combineReducers({
-  kittens
+  displays
 });
 
 export default reducers;

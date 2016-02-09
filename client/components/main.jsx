@@ -11,35 +11,24 @@ import useSheet from 'react-jss';
 // import { addKitten, deleteKitten } from '../actions/kittens';
 
 const Main = ({ sheet }) => (
-	<div className={sheet.classes.container}>
-		<div className={sheet.classes.page}>
-			<div className={sheet.classes.pageTitle}>
-				Command Center
-			</div>
-			<div>
-				<Link to='/login' >Login</Link>
-			</div>
+	<div className={sheet.classes.page}>
+		<div className={sheet.classes.pageTitle}>
+			Command Center
+		</div>
+		<div>
+			<Link to='/login' >Login</Link>
 		</div>
 	</div>
 );
 
 const STYLES = {
-	container: {
-		padding:'0.5rem',
-		display: 'flex',
-		textAlign: 'center',
-		flexBasis: '88%',
-		width: '90%',
-		alignSelf: 'stretch',
-		flexWrap: 'wrap'
-	},
 	page: {
-		background: 'black'
+		'background': 'black'
 	},
 	pageTitle: {
-		fontSize: '3rem',
-		color: 'gray'
-	}
+		'font-size': '2.5rem',
+		'color': 'tan'
+	},
 };
 
 export default useSheet(Main, STYLES);

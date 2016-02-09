@@ -11,32 +11,39 @@ var Route = ReactRouter.Route;
 var Link = ReactRouter.Link;
 
 var DisplaysStore = require('./displays-store');
-
-var Actions = require('../../actions');
-
-var DisplayControls = require('./display-controls');
+var Actions = require('../actions');
 
 
 module.exports = React.createClass({
 	mixins:[
-		Router.CurrentPath,
 		StateMixin.connect(DisplaysStore)
 	],
-	componentWillMount: function(){
-		var display = this.props.location.pathname.split('/')[2];
-		Actions.selectDisplay(display);
+	componentDidMount: function(){
+		
 	},
 	render: function(){
 		return(
-			<div className="single-display pageCenter">
-				<div className="pageTitle">
-					{this.state.currentDisplay} Display
-				</div>
-				<DisplayControls />
+			<div className="display-controls">
+				<button 
+					className="turn-on-btn btn"
+					onClick={this.sendCommand.bind(this, "turn-on")}
+				>Turn On
+				</button>
+				<button 
+					className="turn-off-btn btn"
+					onClick={this.sendCommand.bind(this, "turn-off")}
+				>Turn Off
+				</button>
 			</div>
 		)
+	},
+	sendCommand: function(command){
+		Actions.sendCommand(command);
 	},
 	componentWillReceiveProps: function(nextProps){
 		
 	},
+	onChange: function(event, images){
+
+	}
 });

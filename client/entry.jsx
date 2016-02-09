@@ -26,9 +26,9 @@ import reducers from './reducers';
 
 // Components
 import Main from './components/main'
-import Login from './components/login-view/login'
-import Displays from './components/displays-view/all-displays'
-import SingleDisplay from './components/displays-view/single-display'
+import Login from './components/login'
+import Displays from './components/displays-all'
+import SingleDisplay from './components/display-single'
 
 
 const createStoreWithMiddleware = applyMiddleware(

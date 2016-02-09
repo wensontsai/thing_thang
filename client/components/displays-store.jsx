@@ -6,9 +6,9 @@ var update = require('react-addons-update');
 
 var Reflux = require('reflux');
 var StateMixin = require('reflux-state-mixin')(Reflux); 
-var Actions = require('../../actions');
+var Actions = require('../actions');
 
-var Api = require('../../utils/api_ajax');
+var Api = require('../utils/api_ajax');
 
 // var Client = require('node-rest-client').Client;
 
