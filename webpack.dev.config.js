@@ -5,7 +5,9 @@ var webpack = require('webpack');
 var config = require('./webpack.base.config.js');
 var update = require('react/lib/update');
 var ExportFilesWebpackPlugin = require('export-files-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var autoprefixer = require('autoprefixer');
 
 if (process.env.NODE_ENV !== 'test') {
   config = update(config, {
@@ -50,7 +52,20 @@ config = update(config, {
   module: {
     loaders: {
       $push: [
-        { test: /\.jsx?$/, loaders: [ 'babel' ], exclude: /node_modules/ }
+        { 
+          test: /\.jsx?$/, 
+          loaders: [ 'babel' ], 
+          exclude: /node_modules/ 
+        },
+        {
+          test: /\.scss$/,
+          loaders: [
+              'style',
+              'css',
+              'autoprefixer?browsers=last 3 versions',
+              'sass?outputStyle=expanded'
+          ]
+        }
       ]
     }
   },

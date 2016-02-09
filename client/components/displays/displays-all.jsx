@@ -4,22 +4,24 @@ import { Link } from 'react-router';
 import useSheet from 'react-jss';
 import { connect } from 'react-redux';
 
-import { selectDisplay } from '../actions/displays';
+import { selectDisplay } from '../../actions/displays';
 
+
+import './displays.scss';
 
 const DisplaysAll = ({ sheet, displays, selectDisplay }) =>
-  <div className={sheet.classes.page}>
-    <div className={sheet.classes.pageTitle}>
+  <div className='page'>
+    <div className='pageTitle'>
       All Displays Page
     </div>
-    <div className={sheet.classes.allDisplays}>
+    <div className='allDisplays'>
       {displays.displaysArray.map(display => (
           <Link to={`/displays/${display}`}
             key={`${display}`}
             onClick={selectDisplay.bind(this, display)}
           >
-            <div className={sheet.classes.displayLink}>
-              <div className={sheet.classes.displayName}>
+            <div className='displayLink'>
+              <div className='displayName'>
                 {display}
               </div>
             </div>
@@ -30,23 +32,6 @@ const DisplaysAll = ({ sheet, displays, selectDisplay }) =>
 
 
 const STYLES = {
-  page: {
-    'background': 'black'
-  },
-  pageTitle: {
-    'font-size': '2.5rem',
-    'color': 'tan'
-  },
-  displayLink: {
-    'height' : '300px',
-    'width' : '300px',
-    'float' : 'left',
-    'border' : 'gray solid 1px',
-    'margin' : '1rem'
-  },
-  displayName: {
-    'text-align' : 'center'
-  }
 };
 
 export default connect(

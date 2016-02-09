@@ -19,16 +19,19 @@ jss.use(jssPx());
 jss.use(jssNested());
 jss.use(jssCamelCase());
 
+// import CSS
+import './entry.scss';
+
 // Store
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
 
 // Components
-import Main from './components/main'
-import Login from './components/login'
-import Displays from './components/displays-all'
-import SingleDisplay from './components/display-single'
+import Main from './pages/main'
+import Login from './components/auth/login'
+import Displays from './components/displays/displays-all'
+import SingleDisplay from './components/displays/display-single'
 
 
 const createStoreWithMiddleware = applyMiddleware(
