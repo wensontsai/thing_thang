@@ -1,6 +1,8 @@
 import * as actionTypes from '../actionTypes/displays';
 import { get, post, del } from '../utils/api';
 
+var Api = require('../utils/api');
+
 export function selectDisplay(display) {
   return async dispatch => {
     dispatch({
@@ -10,23 +12,53 @@ export function selectDisplay(display) {
   }
 }
 
-export function sendCommand() {
-  return async dispatch => {
-    dispatch({
-      type: actionTypes.SEND_COMMAND
-    });
+// export function sendCommand(display, command) {
+//   return async dispatch => {
+//     dispatch({
+//       type: actionTypes.SEND_COMMAND
+//     });
 
-    try {
-      const result = await post('/api/sendCommand');
+//     try {
+//       const data = {
+//         display: display,
+//         command: command
+//       };
+//       const result = await post('/api/sendCommand', data);
 
-      dispatch({
-        type: actionTypes.SEND_COMMAND_SUCCESS,
-        result: result
-      });
-    } catch(e) {
-      dispatch({
-        type: actionTypes.SEND_COMMAND_ERROR
-      });
-    }
-  }
+//       dispatch({
+//         type: actionTypes.SEND_COMMAND_SUCCESS,
+//         result: result
+//       });
+//     } catch(e) {
+//       dispatch({
+//         type: actionTypes.SEND_COMMAND_ERROR
+//       });
+//     }
+//   }
+// }
+
+
+
+
+// AJAX WAY //
+export function sendCommand(display, command){
+    var paramsObj = {
+      display: display,
+      command: command
+    };
+
+    Api.sendCommand(paramsObj, function(data){
+      if(data !== 'fail'){
+
+        console.log(data);  
+        // this.setState({
+
+        // });
+      }
+      if(data === 'fail'){
+        // this.setState({
+        //   errorMsg: 'Query failed!'
+        // });
+      }
+    }.bind(this) );
 }

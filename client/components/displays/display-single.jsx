@@ -1,12 +1,9 @@
 import React, { Component, PropTypes } from 'react';
-// import { Router } from 'react-router';
-
 import { connect } from 'react-redux';
-
-import DisplayControls from './display-controls';
-
+// import { Router } from 'react-router';
 // import { routeActions } from 'react-router-redux';
 
+import DisplayControls from './display-controls';
 import './displays.scss';
 
 
@@ -21,7 +18,7 @@ class DisplaySingle extends Component {
 				<div className='pageTitle'>
 					{displays.currentDisplay} Display
 				</div>
-
+				<DisplayControls />
 			</div>
 		);
 	}

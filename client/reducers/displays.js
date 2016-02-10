@@ -2,19 +2,24 @@ import * as actionTypes from '../actionTypes/displays';
 
 const initialState = {
   displaysArray: [
-    "Europe",
-    "NYC",
-    "South America",
-    "Asia",
-    "Airport",
-    "Mars"
+    'Europe',
+    'NYC',
+    'South America',
+    'Asia',
+    'Airport',
+    'Mars'
   ],
-  currentDisplay: 'michigan'
+  currentDisplay: '***'
 };
 
 const selectDisplay = (state, action) => ([
-  ...state,
-  action.currentDisplay
+  // ...state,
+  // { currentDisplay: action.currentDisplay}
+
+  Object.assign({}, state, {
+    currentDisplay: action.currentDisplay
+  })
+
 ]);
 
 const sendCommand = (state, action) => ([
