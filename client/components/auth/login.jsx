@@ -12,10 +12,10 @@ class Login extends Component {
 	    		</div>
 	    		<div className='form'>
 	    			<div>
-	    				<input className='input' type="text" placeholder="username"/>
+	    				<input className='input' type='text' placeholder='username'/>
 	    			</div>
 	    			<div>
-	    				<input className='input' type="text" placeholder="password"/>
+	    				<input className='input' type='text' placeholder='password'/>
 	    			</div>
 	    			<div>
 	    				<button className='button'>Login</button>

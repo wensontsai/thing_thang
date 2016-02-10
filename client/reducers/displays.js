@@ -1,12 +1,6 @@
 import * as actionTypes from '../actionTypes/displays';
 
-// displays Array, currentDisplay
-
-// sendCommand
-
-// selectDisplay
-
-const DEFAULT_STATE = {
+const initialState = {
   displaysArray: [
     "Europe",
     "NYC",
@@ -15,22 +9,22 @@ const DEFAULT_STATE = {
     "Airport",
     "Mars"
   ],
-  currentDisplay: ''
+  currentDisplay: 'michigan'
 };
-
-const sendCommand = (state, action) => ([
-  ...state,
-  action.display
-]);
 
 const selectDisplay = (state, action) => ([
   ...state,
-  ...action.display
+  action.currentDisplay
 ]);
 
-export default function displays(state = DEFAULT_STATE, action) {
+const sendCommand = (state, action) => ([
+  ...state,
+  action.result
+]);
+
+export default function displays(state = initialState, action) {
   return ({
-    [actionTypes.SEND_COMMAND_SUCCESS]: sendCommand,
-    [actionTypes.SELECT_DISPLAY_SUCCESS]: selectDisplay,
+    [actionTypes.SELECT_DISPLAY]: selectDisplay,
+    [actionTypes.SEND_COMMAND_SUCCESS]: sendCommand
   }[action.type] || (s => s))(state, action);
 }

@@ -1,66 +1,31 @@
-import * as actionTypes from '../actionTypes/kittens';
+import * as actionTypes from '../actionTypes/displays';
 import { get, post, del } from '../utils/api';
 
-export function addKitten() {
+export function selectDisplay(display) {
   return async dispatch => {
     dispatch({
-      type: actionTypes.ADD_KITTEN
+      type: actionTypes.SELECT_DISPLAY,
+      currentDisplay: display
     });
-
-    try {
-      const result = await post('/api/kittens');
-
-      dispatch({
-        type: actionTypes.ADD_KITTEN_SUCCESS,
-        kitten: result
-      });
-    } catch(e) {
-      dispatch({
-        type: actionTypes.ADD_KITTEN_ERROR
-      });
-    }
   }
 }
 
-export function requestKittens() {
+export function sendCommand() {
   return async dispatch => {
     dispatch({
-      type: actionTypes.REQUEST_KITTENS
+      type: actionTypes.SEND_COMMAND
     });
 
     try {
-      const result = await get('/api/kittens');
+      const result = await post('/api/sendCommand');
 
       dispatch({
-        type: actionTypes.REQUEST_KITTENS_SUCCESS,
-        kittens: result
+        type: actionTypes.SEND_COMMAND_SUCCESS,
+        result: result
       });
     } catch(e) {
       dispatch({
-        type: actionTypes.REQUEST_KITTENS_ERROR
-      });
-    }
-  }
-}
-
-export function deleteKitten(kittenId) {
-  return async dispatch => {
-    dispatch({
-      type: actionTypes.DELETE_KITTEN,
-      kittenId
-    });
-
-    try {
-      await del(`/api/kittens/${kittenId}`);
-
-      dispatch({
-        type: actionTypes.DELETE_KITTEN_SUCCESS,
-        kittenId
-      });
-    } catch(e) {
-      dispatch({
-        type: actionTypes.DELETE_KITTEN_ERROR,
-        kittenId
+        type: actionTypes.SEND_COMMAND_ERROR
       });
     }
   }
