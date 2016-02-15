@@ -12,15 +12,22 @@ const initialState = {
   currentDisplay: '***'
 };
 
-const selectDisplay = (state, action) => ([
-  // ...state,
-  // { currentDisplay: action.currentDisplay}
+// const selectDisplay = (state, action) => ([
+//   // ...state,
+//   // { currentDisplay: action.currentDisplay}
 
-  Object.assign({}, state, {
+//   Object.assign({}, state, {
+//     currentDisplay: action.currentDisplay
+//   })
+
+// ]);
+
+const selectDisplay = (state, action) => {
+  return Object.assign({}, state, {
     currentDisplay: action.currentDisplay
-  })
-
-]);
+  });
+  console.log(action);
+}
 
 const sendCommand = (state, action) => ([
   ...state,
