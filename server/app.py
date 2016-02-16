@@ -59,9 +59,11 @@ def sendCommand():
     # read the posted values from the UI
     display = request.json['display']
     command = request.json['command']
+
+    # persist to MYSQL database
+
+    # send back to client-side
     return json.dumps({ 'display' : display, 'command' : command})
-
-
 
 
 

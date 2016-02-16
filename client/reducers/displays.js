@@ -35,7 +35,6 @@ const selectDisplay = (state, action) => {
     name: action.currentDisplay,
     status: newState.displaysObject[action.currentDisplay].status
   }
-
   return newState;
 }
 
@@ -49,7 +48,6 @@ const sendCommand = (state, action) => {
     name: action.result.display,
     status: action.result.command
   }
-
   return newState;
 }
 
