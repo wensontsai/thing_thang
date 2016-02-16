@@ -1,28 +1,56 @@
 import * as actionTypes from '../actionTypes/displays';
+// import merge from 'lodash.merge';
 
 const initialState = {
-  displaysArray: [
-    'Europe',
-    'NYC',
-    'South America',
-    'Asia',
-    'Airport',
-    'Mars'
-  ],
-  currentDisplay: '***',
-  result: {}
+  displaysObject: {
+      'Europe': {
+        status : 'OFF'
+      },
+      'NYC': {
+        status : 'OFF'
+      },
+      'South America': {
+        status : 'OFF'
+      },
+      'Asia': {
+        status: 'OFF'
+      }, 
+      'Airport': {
+        status : 'OFF'
+      },
+      'Mars': {
+        status : 'OFF'
+      }
+  },
+  currentDisplay: {
+    name: '***',
+    status: '***'
+  }
 };
 
 const selectDisplay = (state, action) => {
-  return Object.assign({}, state, {
-    currentDisplay: action.currentDisplay
-  });
+  let newState = Object.assign({}, state);
+
+  newState.currentDisplay = {
+    name: action.currentDisplay,
+    status: newState.displaysObject[action.currentDisplay].status
+  }
+
+  return newState;
 }
 
 const sendCommand = (state, action) => {
-  return Object.assign({}, state, {
-    result: action.result
-  });
+  let newState = Object.assign({}, state);
+
+  newState.displaysObject[action.result.display] = {
+    status: action.result.command
+  }
+  newState.currentDisplay = {
+    name: action.result.display,
+    status: action.result.command
+  }
+
+  return newState;
 }
 
 export default function displays(state = initialState, action) {

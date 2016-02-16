@@ -19,11 +19,11 @@ class DisplaySingle extends Component {
 				<Nav />
 				<div className='single-display page'>
 					<div className='pageTitle'>
-						{displays.currentDisplay} Display
+						{displays.currentDisplay.name} Display
 					</div>
 					<DisplayControls />
 					<div>
-						This display is now: {displays.result.command} 
+						This display is now: {displays.currentDisplay.status}
 					</div>
 				</div>
 			</div>

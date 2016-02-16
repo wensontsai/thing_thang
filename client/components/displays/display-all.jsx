@@ -22,7 +22,7 @@ class DisplaysAll extends Component {
                         All Displays Page
                     </div>
                     <div className='display-all'>
-                        {displays.displaysArray.map(display => (
+                        {Object.keys(displays.displaysObject).map(display => (
                         <Link to={`/displays/${display}`}
                             key={`${display}`}
                             onClick={() => selectDisplay(display)}

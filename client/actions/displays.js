@@ -20,7 +20,7 @@ export function sendCommand(display, command) {
 
     try {
       const data = {
-        display: display,
+        display: display.name,
         command: command
       };
       const result = await post('/api/sendCommand', data);
