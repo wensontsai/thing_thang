@@ -8,6 +8,10 @@ import './displays.scss';
 
 
 class DisplaySingle extends Component {
+	componentWillMount(){
+
+	}
+
 	render(){
 		const {
 			displays
@@ -19,6 +23,7 @@ class DisplaySingle extends Component {
 					{displays.currentDisplay} Display
 				</div>
 				<DisplayControls />
+				This display is now: {displays.result.command}
 			</div>
 		);
 	}

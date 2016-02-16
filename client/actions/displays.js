@@ -12,53 +12,59 @@ export function selectDisplay(display) {
   }
 }
 
-// export function sendCommand(display, command) {
-//   return async dispatch => {
-//     dispatch({
-//       type: actionTypes.SEND_COMMAND
-//     });
+export function sendCommand(display, command) {
+  return async dispatch => {
+    dispatch({
+      type: actionTypes.SEND_COMMAND
+    });
 
-//     try {
-//       const data = {
-//         display: display,
-//         command: command
-//       };
-//       const result = await post('/api/sendCommand', data);
+    try {
+      const data = {
+        display: display,
+        command: command
+      };
+      const result = await post('/api/sendCommand', data);
 
-//       dispatch({
-//         type: actionTypes.SEND_COMMAND_SUCCESS,
-//         result: result
-//       });
-//     } catch(e) {
-//       dispatch({
-//         type: actionTypes.SEND_COMMAND_ERROR
-//       });
-//     }
-//   }
-// }
+      dispatch({
+        type: actionTypes.SEND_COMMAND_SUCCESS,
+        result: data
+      });
+    } catch(e) {
+      dispatch({
+        // type: actionTypes.SEND_COMMAND_ERRORx`
+      });
+    }
+  }
+}
 
 
 
 
 // AJAX WAY //
-export function sendCommand(display, command){
-    var paramsObj = {
-      display: display,
-      command: command
-    };
+// export function sendCommand(display, command){
+//     var paramsObj = {
+//       display: display,
+//       command: command
+//     };
 
-    Api.sendCommand(paramsObj, function(data){
-      if(data !== 'fail'){
+//     Api.sendCommand(paramsObj, function(data){
+//       if(data !== 'fail'){
 
-        console.log(data);  
-        // this.setState({
-
-        // });
-      }
-      if(data === 'fail'){
-        // this.setState({
-        //   errorMsg: 'Query failed!'
-        // });
-      }
-    }.bind(this) );
-}
+//         console.log(data);  
+//         return async dispatch => {
+//           dispatch({
+//             type: actionTypes.SEND_COMMAND_SUCCESS,
+//             result: data
+//           });
+//         }
+//       }
+//       if(data === 'fail'){
+//         return async dispatch => {
+//           dispatch({
+//             type: actionTypes.SEND_COMMAND_ERROR,
+//             result: data
+//           });
+//         }
+//       }
+//     }.bind(this) );
+// }

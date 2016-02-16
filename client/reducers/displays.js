@@ -9,30 +9,21 @@ const initialState = {
     'Airport',
     'Mars'
   ],
-  currentDisplay: '***'
+  currentDisplay: '***',
+  result: {}
 };
-
-// const selectDisplay = (state, action) => ([
-//   // ...state,
-//   // { currentDisplay: action.currentDisplay}
-
-//   Object.assign({}, state, {
-//     currentDisplay: action.currentDisplay
-//   })
-
-// ]);
 
 const selectDisplay = (state, action) => {
   return Object.assign({}, state, {
     currentDisplay: action.currentDisplay
   });
-  console.log(action);
 }
 
-const sendCommand = (state, action) => ([
-  ...state,
-  action.result
-]);
+const sendCommand = (state, action) => {
+  return Object.assign({}, state, {
+    result: action.result
+  });
+}
 
 export default function displays(state = initialState, action) {
   return ({
