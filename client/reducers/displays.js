@@ -28,6 +28,13 @@ const initialState = {
   }
 };
 
+// when app initializes
+// query for All Displays available
+// and set initialState
+const queryAllDisplays = () => {
+  return initialState;
+}
+
 const selectDisplay = (state, action) => {
   let newState = Object.assign({}, state);
 

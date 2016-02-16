@@ -3,6 +3,26 @@ import { get, post, del } from '../utils/api';
 
 var Api = require('../utils/api');
 
+export function queryAllDisplays() {
+  return async dispatch => {
+    dispatch({
+      type: actionTypes.GET_ALL_DISPLAYS
+    });
+
+    try {
+      const result = await get('/api/getAllDisplays');
+
+      dispatch({
+        type: actionTypes.GET_ALL_DISPLAYS
+      });
+    } catch(e) {
+      dispatch({
+        type: actionTypes.GET_ALL_DISPLAYS
+      });
+    }
+  }
+}
+
 export function selectDisplay(display) {
   return async dispatch => {
     dispatch({
@@ -35,7 +55,7 @@ export function sendCommand(display, command) {
       });
     }
   }
-} 
+}
 
 
 

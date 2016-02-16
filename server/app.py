@@ -54,6 +54,15 @@ def root():
 #
 # API routes
 #
+@app.route('/api/queryAllDisplays', methods=['GET'])
+def queryAllDisplays():
+    # query DB
+    displays = ''
+
+    # send back to client-side
+    return json.dumps({ 'displays' : displays })
+
+
 @app.route('/api/sendCommand', methods=['POST'])
 def sendCommand():
     # read the posted values from the UI
