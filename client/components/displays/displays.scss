@@ -1,13 +1,22 @@
-.displayLink {
-	height: 300px;
-	width: 300px;
-	float: left;
-	border: gray solid 1px;
-	margin: 1rem;
+.display-all {
+	column-count: 3;
+	column-gap: 1rem;
 }
-.displayName {
+.display-link {
+	height: 325px;
+	width: 100%;
+	border: gray solid 1px;
+	margin: 0.5rem;
+	display: inline-block
+}
+.display-name {
+	font-size: 1.8rem;
 	text-align: center;
 }
 .display-controls {
 	margin: 2rem 0;
 }
+.display-controls .btn {
+	margin: 0 1rem;
+}
+

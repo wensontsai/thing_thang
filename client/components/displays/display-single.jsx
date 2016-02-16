@@ -6,24 +6,26 @@ import { connect } from 'react-redux';
 import DisplayControls from './display-controls';
 import './displays.scss';
 
+import Nav from '../nav/nav';
 
 class DisplaySingle extends Component {
-	componentWillMount(){
-
-	}
-
 	render(){
 		const {
 			displays
 		} = this.props;
 
 		return (
-			<div className='single-display pageCenter'>
-				<div className='pageTitle'>
-					{displays.currentDisplay} Display
+			<div className='display-single-container'>
+				<Nav />
+				<div className='single-display page'>
+					<div className='pageTitle'>
+						{displays.currentDisplay} Display
+					</div>
+					<DisplayControls />
+					<div>
+						This display is now: {displays.result.command} 
+					</div>
 				</div>
-				<DisplayControls />
-				This display is now: {displays.result.command}
 			</div>
 		);
 	}

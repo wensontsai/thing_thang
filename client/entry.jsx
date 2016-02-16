@@ -23,17 +23,21 @@ import DisplayAll from './components/displays/display-all'
 import SingleDisplay from './components/displays/display-single'
 
 
+// Middleware
+
+
 // // adding routing to reducers
 // const reducerRouted = combineReducers(Object.assign({}, reducers, {
 //   routing: routeReducer
 // }));
 // const reduxRouterMiddleware = syncHistory(browserHistory);
 
+
 const createStoreWithMiddleware = applyMiddleware(
   thunk,
   promise,
   // reduxRouterMiddleware,
-  createLogger()
+  createLogger(),
 )(createStore);
 
 const store = createStoreWithMiddleware(reducers);

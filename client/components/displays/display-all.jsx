@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { selectDisplay } from '../../actions/displays';
 import './displays.scss';
 
+import Nav from '../nav/nav';
 
 class DisplaysAll extends Component {
     render(){
@@ -14,25 +15,28 @@ class DisplaysAll extends Component {
         } = this.props;
 
         return (
-        <div className='page'>
-            <div className='pageTitle'>
-                All Displays Page
-            </div>
-            <div className='allDisplays'>
-                {displays.displaysArray.map(display => (
-                <Link to={`/displays/${display}`}
-                    key={`${display}`}
-                    onClick={() => selectDisplay(display)}
-                >
-                    <div className='displayLink'>
-                        <div className='displayName'>
-                            {display}
-                        </div>
+            <div className='display-all-container'>
+                <Nav />
+                <div className='page'>
+                    <div className='pageTitle'>
+                        All Displays Page
                     </div>
-                </Link>
-                ))}
+                    <div className='display-all'>
+                        {displays.displaysArray.map(display => (
+                        <Link to={`/displays/${display}`}
+                            key={`${display}`}
+                            onClick={() => selectDisplay(display)}
+                        >
+                            <div className='display-link'>
+                                <div className='display-name'>
+                                    {display}
+                                </div>
+                            </div>
+                        </Link>
+                        ))}
+                    </div>
+                </div>
             </div>
-        </div>
         );
     }
 }
