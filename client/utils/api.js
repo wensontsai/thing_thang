@@ -61,7 +61,7 @@ export function del(url) {
 //       })
 //       .done((data) => {
 //         callback(data);
-//       })  
-//   }, 
+//       })
+//   }
 // };
 

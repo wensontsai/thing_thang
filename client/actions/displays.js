@@ -31,7 +31,7 @@ export function sendCommand(display, command) {
       });
     } catch(e) {
       dispatch({
-        // type: actionTypes.SEND_COMMAND_ERRORx`
+        type: actionTypes.SEND_COMMAND_ERROR
       });
     }
   }
@@ -50,7 +50,7 @@ export function sendCommand(display, command) {
 //     Api.sendCommand(paramsObj, function(data){
 //       if(data !== 'fail'){
 
-//         console.log(data);  
+//         console.log(data);
 //         return async dispatch => {
 //           dispatch({
 //             type: actionTypes.SEND_COMMAND_SUCCESS,
